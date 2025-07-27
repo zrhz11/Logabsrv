@@ -1,9 +1,7 @@
 package main
 
-import (
-
-)
+import "Logabsrv/cmd"
 
 func main() {
-	
+	cmd.Execute()
 }
