@@ -29,6 +29,14 @@ func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.logabsrv.yaml)")
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// Bind flags to viper so that configuration can come from flags,
+	// environment variables, or config files interchangeably.
+	if err := viper.BindPFlag("config", rootCmd.PersistentFlags().Lookup("config")); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+	}
+	if err := viper.BindPFlag("toggle", rootCmd.Flags().Lookup("toggle")); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+	}
 }
 
 func initConfig() {
