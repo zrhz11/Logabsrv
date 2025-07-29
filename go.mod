@@ -3,6 +3,8 @@ module Logabsrv
 go 1.24.0
 
 require (
+	github.com/joho/godotenv v1.5.1
+	github.com/mattn/go-sqlite3 v1.14.29
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 )
